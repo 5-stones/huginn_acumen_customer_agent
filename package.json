@@ -1,0 +1,19 @@
+{
+  "name": "huginn_state_code_agent",
+  "version": "1.0.0",
+  "description": "A lightweight agent to derive a state/province abbreviation given a region, location & country",
+  "scripts": {
+    "version": "npm run changelog && git add CHANGELOG.md && npm run version:gemspec",
+    "version:gemspec": "node bin/version && git add huginn_state_code_agent.gemspec",
+    "gem:build": "gem build huginn_state_code_agent.gemspec",
+    "gem:push": "node bin/push",
+    "gem:release": "npm run gem:build && npm run gem:push",
+    "postversion": "git push && git push --tags && npm run gem:release",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+  },
+  "author": "Mike Rogers <mrogers@weare5stones.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "conventional-changelog-cli": "^2.0.23"
+  }
+}
